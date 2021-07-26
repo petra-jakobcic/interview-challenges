@@ -14,7 +14,7 @@ $color-blue-pale: #8fbcdc; // pale-blue
 
 // Font
 $font-default: 'Lato', sans-serif;
-$font-size-default: 1.6rem; /* 16px, used across the website */
+$font-size-default: 1.5rem; /* 16px, used across the website */
 
 // Utilities
 .u-center-text {
@@ -22,7 +22,7 @@ $font-size-default: 1.6rem; /* 16px, used across the website */
 }
 
 .u-margin-bottom-small {
-  	margin-bottom: 1rem;
+	margin-bottom: .7rem;
 }
 
 .u-margin-bottom-medium {
@@ -109,4 +109,32 @@ body {
 ::placeholder {
 	color: $color-white;
 	opacity: 1;
+}
+
+// Mood section
+.mood {
+	&__question {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__container {
+		width: 20%;
+		text-align: center;
+	}
+
+	&__emojis {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__emoji {
+		padding: 1rem;
+		background-color: $color-blue-light;
+		border-radius: 1rem;
+	}
+
+	&__caption {
+		font-size: 1rem;
+	}
 }
