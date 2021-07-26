@@ -2,32 +2,34 @@ import React from 'react';
 
 export default function Mood() {
 	return (
-		<section>
-			<div>
+		<section className="mood u-margin-bottom-medium">
+			<div className="mood__question u-margin-bottom-medium">
 				<div>How do you feel?</div>
 
-				<div>Two dots</div>
+				<div>
+					<div>&middot; &middot;</div>
+				</div>
 			</div>
 
-			<div>
-				<div>
-					<div>Emoji</div>
-					<span>Bad</span>
-				</div>
-				<div>
-
-					<div>Emoji</div>
-					<span>Fine</span>
+			<div className="mood__emojis">
+				<div className="mood__container">
+					<div className="mood__emoji u-margin-bottom-small">&#128532;</div>
+					<span className="mood__caption">Badly</span>
 				</div>
 
-				<div>
-					<div>Emoji</div>
-					<span>Well</span>
+				<div className="mood__container">
+					<div className="mood__emoji u-margin-bottom-small">&#128522;</div>
+					<span className="mood__caption">Fine</span>
 				</div>
 
-				<div>
-					<div>Emoji</div>
-					<span>Excellent</span>
+				<div className="mood__container">
+					<div className="mood__emoji u-margin-bottom-small">&#128516;</div>
+					<span className="mood__caption">Well</span>
+				</div>
+
+				<div className="mood__container">
+					<div className="mood__emoji u-margin-bottom-small">&#128512;</div>
+					<span className="mood__caption">Excellent</span>
 				</div>
 			</div>
 		</section>
