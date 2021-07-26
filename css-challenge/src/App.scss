@@ -80,3 +80,33 @@ body {
 		border-radius: 1.5rem;
 	}
 }
+
+// Search Bar
+.searchbar {
+	display: flex;
+	padding: 1.1rem;
+	background-color: #408dc5;
+	border-radius: 1.5rem;
+
+	&__icon-container {
+		display: flex;
+		align-items: center;
+		margin-left: 1rem;
+	}
+
+	&__icon {
+		font-size: 2rem;
+		margin-right: .5rem;
+	}
+
+	&__input {
+		border: none;
+		padding: 1rem;
+		background-color: #408dc5;
+	}
+}
+
+::placeholder {
+	color: $color-white;
+	opacity: 1;
+}
