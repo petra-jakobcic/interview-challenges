@@ -10,9 +10,10 @@ $color-white: #fff;
 $color-primary-light: #e4e9f4; // light-grey
 $color-primary-dark: #257ebd; // dark-blue
 $color-blue-light: #408dc5; // light-blue
+$color-blue-pale: #8fbcdc; // pale-blue
 
 // Font
-$font-default: "Calibri";
+$font-default: 'Lato', sans-serif;
 $font-size-default: 1.6rem; /* 16px, used across the website */
 
 // Utilities
@@ -57,4 +58,25 @@ html {
 body {
     font-size: $font-size-default;
 	font-family: $font-default;
+}
+
+// Header
+.header {
+	display: flex;
+	justify-content: space-between;
+
+	&__greeting {
+		font-size: 2rem;
+	}
+
+	&__date {
+		color: #8fbcdc;
+	}
+
+	&__icon {
+		font-size: 2rem;
+		padding: 1.5rem;
+		background-color: $color-blue-light;
+		border-radius: 1.5rem;
+	}
 }
