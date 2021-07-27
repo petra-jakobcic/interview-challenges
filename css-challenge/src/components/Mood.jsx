@@ -11,7 +11,7 @@ export default function Mood() {
 				</div>
 			</div>
 
-			<div className="mood__emojis">
+			<div className="mood__emojis u-margin-bottom-big">
 				<div className="mood__container">
 					<div className="mood__emoji u-margin-bottom-small">&#128532;</div>
 					<span className="mood__caption">Badly</span>
