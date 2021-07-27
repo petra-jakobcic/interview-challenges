@@ -7,14 +7,17 @@
 
 // Colours
 $color-white: #fff;
+$color-black: #333;
 $color-primary-light: #e4e9f4; // light-grey
 $color-primary-dark: #257ebd; // dark-blue
 $color-blue-light: #408dc5; // light-blue
 $color-blue-pale: #8fbcdc; // pale-blue
+$color-grey-pale: #c8dbf8; // pale-grey
+$color-peach: #f78556; // peach
 
 // Font
 $font-default: 'Lato', sans-serif;
-$font-size-default: 1.5rem; /* 16px, used across the website */
+$font-size-default: 1.3rem; /* 16px, used across the website */
 
 // Utilities
 .u-center-text {
@@ -66,6 +69,7 @@ html {
 body {
     font-size: $font-size-default;
 	font-family: $font-default;
+	letter-spacing: .5px;
 }
 
 // Header
