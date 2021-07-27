@@ -14,6 +14,7 @@ $color-blue-light: #408dc5; // light-blue
 $color-blue-pale: #8fbcdc; // pale-blue
 $color-grey-pale: #c8dbf8; // pale-grey
 $color-peach: #f78556; // peach
+$color-pink: #f95b7e; // dark-pink
 
 // Font
 $font-default: 'Lato', sans-serif;
@@ -54,7 +55,7 @@ $font-size-default: 1.3rem; /* 16px, used across the website */
 	}
 
 	&__popup-container {
-		padding: 1rem 4rem 4rem;
+		padding: 1rem 4rem 0 4rem;
 		background-color: $color-white;
 		border-radius: 2.5rem;
 		margin-top: -5rem;
@@ -65,7 +66,7 @@ $font-size-default: 1.3rem; /* 16px, used across the website */
 html {
   	font-size: 62.5%; /* root font size of 10px / default font size of 16px */
 }
-    
+
 body {
     font-size: $font-size-default;
 	font-family: $font-default;
@@ -217,6 +218,10 @@ body {
 		background-color: $color-primary-dark;
 	}
 
+	&__icon-container--pink {
+		background-color: $color-pink;
+	}
+
 	&__icon {
 		color: $color-white;
 		font-size: 1.7rem;
@@ -224,11 +229,18 @@ body {
 }
 
 // Navigation
+.nav-section {
+	position: relative;
+	width: 100%;
+}
+
 .nav-container {
 	padding: 3rem 3rem 0 3rem;
 	background-color: $color-white;
 	border-radius: 2.5rem;
-	margin-top: -4rem;
+	margin-top: -6.6rem;
+	position: absolute;
+	width: 100%;
 }
 
 .nav {

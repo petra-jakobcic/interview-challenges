@@ -26,6 +26,11 @@ export default function Exercises() {
 				numberOfExercises="8 Exercises"
 				iconNumber={2}
 			/>
+
+			<Exercise
+				exerciseTitle="Exercise title"
+				iconNumber={3}
+			/>
 		</section>
 	)
 }
