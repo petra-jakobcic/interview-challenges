@@ -14,7 +14,9 @@ function App() {
         <SearchBar />
 
         <Mood />
+      </div>
 
+      <div className="app__popup-container">
         <Exercises />
 
         <NavBar />
