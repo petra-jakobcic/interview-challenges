@@ -1,17 +1,31 @@
 import React from 'react';
+import pointer from '../pointer.jpg';
 
 export default function NavBar() {
 	return (
 		<footer>
-			<nav>
-				<div>Icon 1</div>
+			<nav className="nav">
+				<div className="nav__link--current">
+					<i class="fas fa-home nav__icon nav__icon--current"></i>
 
-				<div>Icon 2</div>
+					<div className="nav__pointer-container">
+						<img src={pointer} alt="Pointer" className="nav__pointer" />
+					</div>
+				</div>
 
-				<div>Icon 3</div>
+				<div>
+					<i class="fas fa-th-large nav__icon"></i>
+				</div>
 
-				<div>Icon 4</div>
+				<div>
+					<i class="fas fa-envelope nav__icon"></i>
+				</div>
+
+				<div>
+					<i class="fas fa-user nav__icon"></i>
+				</div>
 			</nav>
+
 		</footer>
 	)
 }
