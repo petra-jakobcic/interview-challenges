@@ -12,6 +12,10 @@ export default function Exercise(props) {
       icon = "fas fa-user";
       iconBackgroundColour = "exercise__icon-container--blue";
       break;
+    case 3:
+			icon = "fas fa-user";
+      iconBackgroundColour = "exercise__icon-container--pink";
+      break;
     default:
       console.log("No icon found.")
   }

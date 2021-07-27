@@ -20,8 +20,10 @@ function App() {
         <Exercises />
       </div>
 
-      <div className="nav-container">
-        <NavBar />
+      <div className="nav-section">
+        <div className="nav-container">
+          <NavBar />
+        </div>
       </div>
     </div>
   );
