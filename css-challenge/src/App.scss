@@ -222,3 +222,43 @@ body {
 		font-size: 1.7rem;
 	}
 }
+
+// Navigation
+.nav-container {
+	padding: 3rem 3rem 0 3rem;
+	background-color: $color-white;
+	border-radius: 2.5rem;
+	margin-top: -4rem;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-around;
+	width: 85%;
+	margin: 0 auto;
+	margin-bottom: 1rem;
+
+	&__icon {
+		font-size: 1.7rem;
+		color: #cedaf5;
+	}
+
+	&__icon--current {
+		color: $color-primary-dark;
+		margin-bottom: 1rem;
+	}
+
+	&__pointer-container {
+		margin-bottom: -4px;
+	}
+
+	&__pointer {
+		width: 3.7rem;
+		margin-left: -.9rem;
+	}
+
+	&__link--current {
+		display: flex;
+		flex-direction: column;
+	}
+}

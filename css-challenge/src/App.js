@@ -18,7 +18,9 @@ function App() {
 
       <div className="app__popup-container">
         <Exercises />
+      </div>
 
+      <div className="nav-container">
         <NavBar />
       </div>
     </div>
