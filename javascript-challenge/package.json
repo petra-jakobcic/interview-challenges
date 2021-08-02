@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "format": "prettier --write **/*.{js,md}",
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "prettier": {
     "trailingComma": "all",
