@@ -1,74 +1,116 @@
-/** 
-  An event could look like this:
-  ```
-  {
-    id: 107,
-    startsAt: '2021-01-27T13:01:11Z', 
-    endsAt: '2021-01-27T15:01:11Z', 
-    title: 'Daily walk',
-  }
-  ```
-*/
+'use strict';
 
-/** 
-  Take an array of events and return an object that is a  mapping from the 'day' to the events occuring on that day.
-  The keys should be the day-difference to the earliest occuring event.
-  Each days events should be sorted in ascending order of startsAt
+// // Import the dependencies.
+const { format, parseISO, differenceInDays } = require('date-fns');
 
-  A result could look like:
-  ```
-  {
-    0: [
-      { id: 106, startsAt: '2021-01-27T13:01:11Z',  endsAt: '2021-01-27T15:01:11Z',  title: 'Daily walk' },
-      { id: 156, startsAt: '2021-01-27T17:01:11Z',  endsAt: '2021-01-27T22:01:11Z',  title: 'Dinner' },
-    ],
-    2: [
-      { id: 5676, startsAt: '2021-01-29T13:01:11Z',  endsAt: '2021-01-29T15:01:11Z',  title: 'Daily walk' },
-    ]
-  }
- ```
+/**
+ * Sorts a list of events by date.
+ *
+ * @param {Array} events A list of events.
+ *
+ * @returns {Array} The list of events sorted by date.
+ */
+const sortEvents = events => {
+	const sortedEvents = events.sort((a, b) => {
+		const dateA = new Date(a.startsAt);
+		const dateB = new Date(b.startsAt);
+		return dateA - dateB;
+	});
 
- Your solution should not modify any of the function arguments
-*/
-const groupEventsByDay = (events) => {
-  return events;
+	return sortedEvents;
 };
 
-/** 
-  Adjust the start and end date of an event so it maintains its total duration, but is moved `toDay`.
-  `eventsByDay` should be the same as the return value of `groupEventsByDay`
-  `id` will be the event that should be moved
-  `toDay` will be a number that indicates the key of `eventsByDay` that the target event should be moved to
+/**
+ * Determines if a new slot is needed.
+ * If the two given date strings are the same,
+ * then we don't need a new slot, however,
+ * if they are different,
+ * then we do need a new slot.
+ *
+ * @param {string} date1 The first date.
+ * @param {string} date2 The second date.
+ *
+ * @return {boolean} True if they differ,
+ *                   otherwise false.
+ */
+const newSlotIsNeeded = (date1, date2) => {
+    return date1 !== date2;
+};
 
-  Example:
-  ```
-  moveEventToDay(
-    {
-      0: [
-        { id: 106, startsAt: '2021-01-27T13:01:11Z',  endsAt: '2021-01-27T15:01:11Z',  title: 'Daily walk' },      
-      ],
-      2: [
-        { id: 5676, startsAt: '2021-01-29T13:01:11Z',  endsAt: '2021-01-29T15:01:11Z',  title: 'Daily walk' },
-      ]
-    },
-    5676,
-    3,
-  )
-  ```
-  Should return something like 
-  ```
-  {
-    0: [
-      { id: 106, startsAt: '2021-01-27T13:01:11Z',  endsAt: '2021-01-27T15:01:11Z',  title: 'Daily walk' },      
-    ],
-    3: [
-      { id: 5676, startsAt: '2021-01-30T13:01:11Z',  endsAt: '2021-01-30T15:01:11Z',  title: 'Daily walk' },
-    ]
-  },
-  ```
+/**
+ * Gets a number which is the difference between the earliest and
+ * later date.
+ *
+ * @param {string} earliestDate The earliest event date.
+ * @param {string} laterDate A later event date.
+ *
+ * @returns {number} The difference in days between the two dates.
+ */
+const createNewSlot = (earliestDate, laterDate) => {
+    const dateObject1 = parseISO(earliestDate);
+    const dateObject2 = parseISO(laterDate);
 
-  Your solution should not modify any of the function arguments
-*/
-const moveEventToDay = (eventsByDay, id, toDay) => {
-  return eventsByDay;
+    return differenceInDays(dateObject2, dateObject1);
+}
+
+/**
+ * Adds an event at the given slot in the given groups object.
+ *
+ * @param {Object} groups The events grouped by their day difference.
+ * @param {number} slot The day difference from the first event day (0).
+ * @param {Object} event An event object.
+ *
+ * @returns {void}
+ */
+const addToSlot = (groups, slot, event) => {
+    groups[slot].push(event);
+};
+
+/**
+ * Formats the date to read "yyyy-MM-dd".
+ *
+ * @param {Date} date The date to be formatted.
+ *
+ * @returns {string} The formatted date excluding the time.
+ */
+const dateWithoutTime = date => {
+	return format(date, "yyyy-MM-dd");
+};
+
+/**
+ * Groups events by day difference.
+ *
+ * @param {Array} events A list of events.
+ *
+ * @returns {Object} The events grouped by day difference.
+ */
+const groupEventsByDayDifference = events => {
+    const sortedEvents = sortEvents(events);
+    const groups = { "0": [] };
+    const minDate = dateWithoutTime(parseISO(sortedEvents[0].startsAt));
+    let slot = 0;
+    let prevDateOnly = minDate;
+
+    sortedEvents.forEach(event => {
+        const dateOnly = dateWithoutTime(parseISO(event.startsAt));
+
+        if (newSlotIsNeeded(dateOnly, prevDateOnly)) {
+            slot = createNewSlot(minDate, dateOnly);
+            groups[slot] = [];
+        }
+
+        addToSlot(groups, slot, event);
+        prevDateOnly = dateOnly;
+    });
+
+    return groups;
+};
+
+module.exports = {
+    dateWithoutTime,
+    sortEvents,
+    newSlotIsNeeded,
+    createNewSlot,
+    addToSlot,
+    groupEventsByDayDifference
 };
