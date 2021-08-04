@@ -1,0 +1,276 @@
+// Mixins
+@mixin universal-styles {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+// Colours
+$color-white: #fff;
+$color-black: #333;
+$color-primary-light: #e4e9f4; // light-grey
+$color-primary-dark: #257ebd; // dark-blue
+$color-blue-light: #408dc5; // light-blue
+$color-blue-pale: #8fbcdc; // pale-blue
+$color-grey-pale: #c8dbf8; // pale-grey
+$color-peach: #f78556; // peach
+$color-pink: #f95b7e; // dark-pink
+
+// Font
+$font-default: 'Lato', sans-serif;
+$font-size-default: 1.3rem; /* 16px, used across the website */
+
+// Utilities
+.u-center-text {
+  	text-align: center;
+}
+
+.u-margin-bottom-small {
+	margin-bottom: .7rem;
+}
+
+.u-margin-bottom-medium {
+  	margin-bottom: 2rem;
+}
+
+.u-margin-bottom-big {
+  	margin-bottom: 4rem;
+}
+
+// Universal styles
+* {
+  	@include universal-styles;
+}
+
+.app {
+	background-color: $color-primary-light;
+	padding: 4rem;
+
+	&__container {
+		background-color: $color-primary-dark;
+		color: white;
+		font-weight: bold;
+		padding: 4rem;
+		border-radius: 2.5rem;
+	}
+
+	&__popup-container {
+		padding: 1rem 4rem 0 4rem;
+		background-color: $color-white;
+		border-radius: 2.5rem;
+		margin-top: -5rem;
+		font-weight: bold;
+	}
+}
+
+html {
+  	font-size: 62.5%; /* root font size of 10px / default font size of 16px */
+}
+
+body {
+    font-size: $font-size-default;
+	font-family: $font-default;
+	letter-spacing: .5px;
+}
+
+// Header
+.header {
+	display: flex;
+	justify-content: space-between;
+
+	&__greeting {
+		font-size: 2rem;
+	}
+
+	&__date {
+		color: #8fbcdc;
+	}
+
+	&__icon {
+		font-size: 2rem;
+		padding: 1.5rem;
+		background-color: $color-blue-light;
+		border-radius: 1.5rem;
+	}
+}
+
+// Search Bar
+.searchbar {
+	display: flex;
+	padding: 1.1rem;
+	background-color: #408dc5;
+	border-radius: 1.5rem;
+
+	&__icon-container {
+		display: flex;
+		align-items: center;
+		margin-left: 1rem;
+	}
+
+	&__icon {
+		font-size: 2rem;
+		margin-right: .5rem;
+	}
+
+	&__input {
+		border: none;
+		padding: 1rem;
+		background-color: #408dc5;
+	}
+}
+
+::placeholder {
+	color: $color-white;
+	opacity: 1;
+}
+
+// Mood section
+.mood {
+	&__question {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__container {
+		width: 20%;
+		text-align: center;
+	}
+
+	&__emojis {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__emoji {
+		padding: 1rem;
+		background-color: $color-blue-light;
+		border-radius: 1rem;
+	}
+
+	&__caption {
+		font-size: 1rem;
+	}
+}
+
+// The 'Exercises' section
+.exercises {
+	background-color: $color-white;
+	color: $color-black;
+
+	&__swipe-line {
+		border-top: 5px solid $color-grey-pale;
+		width: 15%;
+		margin: 0 auto;
+		border-radius: 5px;
+		margin-bottom: 3rem;
+	}
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+}
+
+.exercise {
+	&__container {
+		display: flex;
+		border: 1px solid $color-grey-pale;
+		border-radius: 1rem;
+		padding: 1.5rem;
+		box-shadow: 20px 25px 8px -8px #E7EFF7;
+		width: 95%;
+		margin: 0 auto;
+		margin-bottom: 2rem;
+	}
+
+	&__details {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		width: 100%;
+	}
+
+	&__detail {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__number {
+		color: #8192b8;
+		font-size: 1rem;
+	}
+
+	&__icon-container {
+		display: flex;
+		align-items: center;
+		border-radius: 1rem;
+		padding: 1.3rem;
+		margin-right: 1rem;
+
+	}
+
+	&__icon-container--peach {
+		background-color: $color-peach;
+	}
+
+	&__icon-container--blue {
+		background-color: $color-primary-dark;
+	}
+
+	&__icon-container--pink {
+		background-color: $color-pink;
+	}
+
+	&__icon {
+		color: $color-white;
+		font-size: 1.7rem;
+	}
+}
+
+// Navigation
+.nav-section {
+	position: relative;
+	width: 100%;
+}
+
+.nav-container {
+	padding: 3rem 3rem 0 3rem;
+	background-color: $color-white;
+	border-radius: 2.5rem;
+	margin-top: -6.6rem;
+	position: absolute;
+	width: 100%;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-around;
+	width: 85%;
+	margin: 0 auto;
+	margin-bottom: 1rem;
+
+	&__icon {
+		font-size: 1.7rem;
+		color: #cedaf5;
+	}
+
+	&__icon--current {
+		color: $color-primary-dark;
+		margin-bottom: 1rem;
+	}
+
+	&__pointer-container {
+		margin-bottom: -4px;
+	}
+
+	&__pointer {
+		width: 3.7rem;
+		margin-left: -.9rem;
+	}
+
+	&__link--current {
+		display: flex;
+		flex-direction: column;
+	}
+}
